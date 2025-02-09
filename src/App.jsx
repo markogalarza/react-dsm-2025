@@ -1,7 +1,8 @@
 
 import './App.css'
-import Producto from './components/Producto'
 import Productos from './components/Productos'
+import Header from './components/ui/Header'
+import Footer from './components/ui/Footer'
 
 function App() {
 
@@ -25,9 +26,9 @@ function App() {
 
   return (
     <>
-      <h2>Let s get started</h2>
-      <p>It is working</p>
+      <Header />
       <Productos productos={productos} />
+      <Footer />
     </>
   )
 }
