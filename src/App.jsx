@@ -36,18 +36,32 @@ function App() {
       },
     ])
 
-    const addProducto = (producto) => {
-      //productos.push(producto)
-      setProductos((prevProductos)=>{
-        return [producto, ...prevProductos]
+  const addProducto = (producto) => {
+    //productos.push(producto)
+    setProductos((prevProductos) => {
+      return [producto, ...prevProductos]
+    })
+  }
+
+  const borraProducto = (id) => {
+    //alert(id)
+    // let productosAux = [...productos]
+    // productosAux = productosAux.filter((elemento) => {
+    //   return elemento.id != id
+    // })
+    // setProductos(productosAux)
+    setProductos((prevProductos) => {
+      return prevProductos = prevProductos.filter((elemento) => {
+        return elemento.id != id
       })
-    }
+    })
+  }
 
   return (
     <>
       <Header />
       <NuevoProducto addProducto={addProducto} />
-      <Productos productos={productos} />
+      <Productos productos={productos} borraProducto={borraProducto} />
       <Footer />
     </>
   )

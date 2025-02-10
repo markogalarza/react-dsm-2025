@@ -29,6 +29,10 @@ function Producto(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const borrar = () => {
+        props.borraProducto(props.producto.id)
+    }
+
     return (
         <div className='producto'>
             <FechaProducto fecha={fecha} />
@@ -37,6 +41,7 @@ function Producto(props) {
                 <div className='producto__precio'>{precio}</div>
                 <Button variant="warning" onClick={handleShow}>VER DETALLES</Button>
                 <Button onClick={cambiaNombre}>CAMBIA NOMBRE</Button>
+                <Button variant='danger' onClick={borrar}>¡¡BORRAR!!</Button>
                 <Modal show={show} onHide={handleClose} centered>
                     <Modal.Header closeButton>
                         <Modal.Title>DETALLES DEL PRODUCTO: {nombre}</Modal.Title>
