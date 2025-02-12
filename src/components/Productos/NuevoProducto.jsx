@@ -8,7 +8,7 @@ function NuevoProducto(props) {
 
     useEffect(()=>{
         nombreRef.current.focus()
-    })
+    },[])
 
     const [nombre, setNombre] = useState('')
     const [precio, setPrecio] = useState('')
