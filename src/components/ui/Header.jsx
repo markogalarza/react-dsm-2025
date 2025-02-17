@@ -27,7 +27,7 @@ function Header() {
                     <Link to='/product-new'>Nuevo producto</Link> |
                 </Nav.Item>
                 <Nav.Item>
-                    <Link to='/contact'>Contacto</Link>
+                    <Link to='/contact?sede=PAMPLONA&persona=Julián'>Contacto</Link>
                 </Nav.Item>
             </Nav>
         </div>
