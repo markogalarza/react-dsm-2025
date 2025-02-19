@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import Modal from 'react-bootstrap/Modal';
 import ProductosContext from '../../store/ProductosContext';
 import { Link } from 'react-router';
+import axios from 'axios';
 
 function Producto(props) {
 
@@ -35,6 +36,10 @@ function Producto(props) {
 
     const borrar = () => {
         props.borraProducto(props.producto.id)
+        axios.delete('https://dsm-react-clase-2025-default-rtdb.europe-west1.firebasedatabase.app/productos/' + props.producto.id + '.json')
+        .then((reponse)=>{
+            alert('Se ha borrado el producto.')
+        })
     }
 
     const borrarC = () => {
@@ -45,7 +50,7 @@ function Producto(props) {
         <div className='producto'>
             <FechaProducto fecha={fecha} />
             <div className='producto__descripcion'>
-                <h2>Nombre: {nombre} - <Button variant="outline-warning"><Link to={`/product/${props.producto.id}?format=extended`}>Ver detalles</Link></Button></h2>
+                <h2>{nombre} - <Button variant="outline-warning"><Link to={`/product/${props.producto.id}?format=extended`}>Ver detalles</Link></Button></h2>
                 <div className='producto__precio'>{precio}</div>
                 <Button variant="warning" onClick={handleShow}>VER DETALLES</Button>
                 <Button onClick={cambiaNombre}>CAMBIA NOMBRE</Button>
